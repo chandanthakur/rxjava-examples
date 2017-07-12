@@ -1,0 +1,33 @@
+group 'praveer09.experiments'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+ext {
+    rxJavaVersion = '1.1.9'
+    assertJVersion = '3.5.2'
+    mockitoVersion = '1.10.19'
+    logbackVersion = '1.1.7'
+    jUnitVersion = '4.12'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile "io.reactivex:rxjava:$rxJavaVersion"
+    compile "ch.qos.logback:logback-classic:$logbackVersion"
+    compile 'com.squareup.retrofit2:retrofit:2.0.1'
+    compile 'com.squareup.retrofit2:adapter-rxjava:2.0.1'
+    compile 'com.squareup.retrofit2:converter-jackson:2.0.1'
+    compile 'com.squareup.okhttp3:logging-interceptor:3.2.0'
+    testCompile("junit:junit:$jUnitVersion") {
+        exclude group: 'org.hamcrest'
+    }
+    testCompile "org.assertj:assertj-core:$assertJVersion"
+    testCompile "org.mockito:mockito-all:$mockitoVersion"
+}
